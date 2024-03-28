@@ -11,4 +11,8 @@ for element in array:
     
 for i in range(len(array)):
     array[i]+=10
-    print(array)
+    print(array[i])
+    
+    
+    
+print(array)
