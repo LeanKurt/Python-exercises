@@ -1,14 +1,4 @@
 task = []
-exitProgram = 0
-while not exitProgram == 1:
-    print
-
-
-
-
-
-
-
 
 def addTask():
     exit = 0
@@ -28,9 +18,35 @@ def addTask():
             print("You have entered an invalid input")
         
 def deleteTask(task):
-    exit = False
+    exit = 0
     taskNo = 0
-    while not exit:
+    while not exit == 1:
       taskNumber = int(input("What task number do you want to remove:"))
       taskNo = taskNumber
       task.pop(taskNo)
+      print(task)
+      ifExit = input("Do you want to remove more Task:(yes/no) \n").lower()  # Convert input to lowercase
+      if ifExit == "yes" or ifExit == "y": 
+           continue
+      elif ifExit == "no" or ifExit == "n":  # Use logical OR here
+            exit = 1
+      else:
+            print("You have entered an invalid input")
+      
+      
+     
+            
+def mainProgram(task):
+    exit = 0
+    while not exit == 1:
+      addTask()
+      deleteTask(task)
+      ifExit = input("Do you want to continue")
+      if ifExit == "yes" or ifExit == "y": 
+           continue
+      elif ifExit == "no" or ifExit == "n":  # Use logical OR here
+            exit = 1
+      else:
+            print("You have entered an invalid input")
+
+mainProgram(task)
