@@ -1,5 +1,20 @@
 task = []
 
+def doneTask(task):
+      exit = 0
+      while not exit == 1:
+        taskDone = int(input("What task number did you finish and to mark as done"))
+        task[taskDone]["Done Task"] = True
+        print(task[taskDone])
+        ifExit = input("Do you have more task to be mark as done?").lower()  
+        if ifExit == "yes" or ifExit == "y": 
+           continue
+        elif ifExit == "no" or ifExit == "n":  
+            exit = 1
+        else:
+            print("You have entered an invalid input")
+
+
 def addTask():
     exit = 0
     taskNo = 0  
@@ -40,11 +55,14 @@ def mainProgram(task):
       print("Select from the options")
       print("1. Add task")
       print("2. Delete task \n")
+      print("3. Mark Task as Done")
       option = str(input("Choose a number base from your option(1-2):"))
       if option == "1":
             addTask()
       elif option == "2":
             deleteTask(task)
+      elif option == "3":
+            doneTask(task)
       else:
             print("Invalid option. Please select 1 or 2.")
             continue
